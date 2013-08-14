@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+  'use strict';
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -35,20 +36,19 @@ module.exports = function (grunt) {
     concat: {
       src: {
         src: ['src/**/*.js'],
-        dest: 'dist/rn-lazy-<%= pkg.version %>.js'
+        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       }
     },
     uglify: {
       src: {
         files: {
-          'dist/rn-lazy-<%= pkg.version %>.min.js': '<%= concat.src.dest %>'
+          'dist/<%= pkg.name %>-<%= pkg.version %>.min.js': '<%= concat.src.dest %>'
         }
       }
     },
     karma: {
-      unit: {
+      continuous: {
         configFile: 'karma.conf.js',
-        singleRun: true
       },
       server: {
         configFile: 'karma.conf.js',
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['jshint', 'karma']);
+  grunt.registerTask('default', ['jshint', 'karma:continuous']);
   grunt.registerTask('test', ['karma:server']);
-  grunt.registerTask('build', ['jshint', 'karma:unit', 'concat', 'ngmin', 'uglify']);
+  grunt.registerTask('build', ['jshint', 'karma:continuous', 'concat', 'ngmin', 'uglify']);
 };

@@ -1,5 +1,4 @@
 // Karma configuration
-// Generated on Fri Aug 09 2013 19:53:05 GMT-0300 (BRT)
 
 module.exports = function (config) {
   config.set({
@@ -9,7 +8,7 @@ module.exports = function (config) {
 
 
     // frameworks to use
-    frameworks: ['mocha'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
@@ -55,7 +54,7 @@ module.exports = function (config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['PhantomJS'],
 
 
     // If browser does not capture in given timeout [ms], kill it
@@ -64,6 +63,6 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };

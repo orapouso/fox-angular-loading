@@ -33,7 +33,7 @@
           hideShow(attrs.until);
 
           if (attrs.timeout) {
-            $timeout(function () {hideShow(true); }, attrs.timeout * 1000);
+            $timeout(function () { hideShow(true); }, attrs.timeout * 1000);
           }
         }
       };
