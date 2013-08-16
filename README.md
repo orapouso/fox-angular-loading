@@ -1,4 +1,4 @@
-# Angular <loading> element
+# Angular &lt;loading&gt; element
 
 ***
 
@@ -45,17 +45,17 @@ The element will hide itself when some items are loaded and the array is greater
 
 ### Attributes
 
-* **until** - Expression to be evaluated that mantains the element showing until it becomes false. In that case, it hides itself
-* **timeout** - If for any reason the loading element show hide itself after so many seconds have passed.
+* **until** - Expression to be evaluated that keeps the element showing until it becomes true. In that case, it hides itself
+* **timeout** - The loading element will hide itself after so many seconds have passed even if the until expression is false
 
 ### Transclude
 
-The element supports `transcluding` with anything that shoud be shown until some resource is done loading. It could be a simple rotating gif, a complete element with a loading message or nothing at all.
+The element supports `transcluding` with anything that shoud be shown until some resource is done loading. It could be from simple rotating gif to a complete progress bar, a loading message or nothing at all.
 
 ### CSS
 
-You can define a `.loading` class anywhere on your CSS to style the loading element. If you don't want to use a transcluding element, it could be a styled background gif.
+You can define a `.loading` class anywhere in your CSS to style the loading element. If you don't want to use a transcluding element, it could be a simple background gif.
 
 ## Contributing
 
-Clone the repo, npm install, bower install, grunt test
+Clone the repo, npm install, grunt dev and start coding

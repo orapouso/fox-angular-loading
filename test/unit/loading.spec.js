@@ -47,11 +47,8 @@ describe('angular-loading', function () {
     createLoading({timeout: 1});
 
     $timeout.flush();
-    waits(1000);
-    runs(function () {
-      expect(loading[0].style.display).toBe('none');
-      expect(scope.untilExpr).toBe(false);
-    });
+    expect(loading[0].style.display).toBe('none');
+    expect(scope.untilExpr).toBe(false);
   }));
 
   it('should transclude any element inside it', function () {

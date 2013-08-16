@@ -9,9 +9,9 @@
     "url": "git://github.com/orapouso/angular-loading"
   },
   "dependencies": {
-    "angular": "~1.0.7"
+    "angular": "http://code.angularjs.org/1.1.5/angular.js"
   },
   "devDependencies": {
-    "angular-mocks": "~1.0.7"
+    "angular-mocks": "http://code.angularjs.org/1.1.5/angular-mocks.js"
   }
 }

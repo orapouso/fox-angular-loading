@@ -1,22 +1,21 @@
 module.exports = function (grunt) {
   'use strict';
 
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-ngmin');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('bower.json'),
-    meta: {
-      banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        '<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
-        '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
+    shell: {
+      install: {
+        command: 'node ./node_modules/bower/bin/bower install'
+      }
     },
     watch: {
       scripts: {
@@ -46,18 +45,32 @@ module.exports = function (grunt) {
         }
       }
     },
-    karma: {
-      continuous: {
-        configFile: 'karma.conf.js',
+    connect: {
+      options: {
+        port: 8000,
       },
       server: {
-        configFile: 'karma.conf.js',
-        singleRun: false
-      }
+        options: {
+          keepalive: true
+        }
+      },
+      testserver: {}
     },
-    changelog: {
-      options: {
-        dest: 'CHANGELOG.md'
+    karma: {
+      dev: {
+        e2e: {
+          configFile: './test/karma-e2e.conf.js'
+        }
+      },
+      unit: {
+        configFile: './test/karma-unit.conf.js',
+        autoWatch: false,
+        singleRun: true
+      },
+      e2e: {
+        configFile: './test/karma-e2e.conf.js',
+        autoWatch: false,
+        singleRun: true
       }
     },
     ngmin: {
@@ -68,7 +81,16 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['jshint', 'karma:continuous']);
-  grunt.registerTask('test', ['karma:server']);
-  grunt.registerTask('build', ['jshint', 'karma:continuous', 'concat', 'ngmin', 'uglify']);
+  grunt.registerTask('test', ['karma:unit', 'connect:testserver', 'karma:e2e']);
+  grunt.registerTask('test:unit', ['karma:unit']);
+  grunt.registerTask('test:e2e', ['connect:testserver', 'karma:e2e']);
+  grunt.registerTask('test:dev:e2e', ['connect:testserver', 'karma:dev:e2e']);
+
+  grunt.registerTask('dev', ['watch']);
+
+  grunt.registerTask('default', ['dev']);
+
+  grunt.registerTask('install', ['shell:install']);
+  grunt.registerTask('server', ['connect:server']);
+  grunt.registerTask('build', ['jshint', 'test', 'concat', 'ngmin', 'uglify']);
 };
