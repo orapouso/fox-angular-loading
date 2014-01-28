@@ -6,7 +6,7 @@ module.exports = function (config) {
   shared(config);
 
   config.files = shared.files.concat([
-    'bower_components/angular-mocks/index.js',
+    'bower_components/angular-mocks/angular-mocks.js',
     'test/unit/*.spec.js'
   ]);
 
