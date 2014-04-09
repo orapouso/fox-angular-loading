@@ -4,25 +4,25 @@
  * Configuration file
  */
 {
-  "forin":true,
-  "noarg":true,
+  "node": true,
+  "browser": true,
   "noempty":true,
   "nonew":true,
-  "eqeqeq":true,
-  "bitwise":true,
-  "undef":true,
-  "unused":true,
-  "curly":true,
-  "camelcase":true,
-  "trailing":true,
-  "white":true,
-  "quotmark":"single",
-  "indent":2,
-
+  "bitwise": true,
+  "camelcase": true,
+  "sub": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
   "laxcomma":true,
-  "es5":true,
-
-  "node":true,
-  "browser":true,
-  "devel":true
+  "expr": true
 }

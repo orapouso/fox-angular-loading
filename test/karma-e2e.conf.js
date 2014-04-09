@@ -1,5 +1,7 @@
 // Karma e2e configuration
 
+'use strict';
+
 var shared = require('./karma-shared.conf');
 
 module.exports = function (config) {

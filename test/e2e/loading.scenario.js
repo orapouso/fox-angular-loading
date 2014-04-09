@@ -1,4 +1,5 @@
-/*global beforeEach, describe, it, expect, browser, element, input */
+/*global element, input */
+'use strict';
 
 describe('E2E: Loading directive', function () {
 

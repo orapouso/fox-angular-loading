@@ -1,8 +1,8 @@
 (function (angular) {
   'use strict';
 
-  angular.module('angular-loading', [])
-    .directive('loading', ['$timeout', function ($timeout) {
+  angular.module('fox.loading', [])
+    .directive('foxLoading', ['$timeout', function ($timeout) {
       return {
         restrict: 'E',
         template: '<div class="loading" ng-transclude></div>',

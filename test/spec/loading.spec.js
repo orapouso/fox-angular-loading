@@ -1,9 +1,7 @@
-/*global waits, runs, beforeEach, afterEach, describe, it, inject, expect, module, angular */
+'use strict';
 
-describe('angular-loading', function () {
-  'use strict';
-
-  beforeEach(module('angular-loading'));
+describe('fox.loading', function () {
+  beforeEach(module('fox.loading'));
 
   var scope, element, loading;
 
@@ -17,7 +15,7 @@ describe('angular-loading', function () {
       scope.untilExpr = false;
       element = angular.element(
         '<div>' +
-        '<loading until="untilExpr == true" ' + options.timeout + '>' + (options.transclude || '') + '</loading>' +
+        '<fox-loading until="untilExpr == true" ' + options.timeout + '>' + (options.transclude || '') + '</fox-loading>' +
         '</div>'
       );
 

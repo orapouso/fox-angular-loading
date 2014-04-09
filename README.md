@@ -1,4 +1,4 @@
-# Angular &lt;loading&gt; element
+# Angular &lt;fox-loading&gt; element
 
 ***
 
@@ -11,19 +11,19 @@
 * Load
 
 ```html
-<script src="angular-loading.js"></script>
+<script src="fox-angular-loading.js"></script>
 ```
 
 * Include module dependency
 
 ```javascript
-angular.module('myApp', ['angularLoading']);
+angular.module('myApp', ['fox.loading']);
 ```
 
 * Use
 
 ```html
-<loading until="expr == true" timeout="3"></loading>
+<fox-loading until="expr == true" timeout="3"></fox-loading>
 ```
 
 ## Documentation
@@ -34,7 +34,7 @@ Ex:
 
 ```html
 <div class="parent">
-	<loading until="items.length > 0"></loading>
+	<fox-loading until="items.length > 0"></fox-loading>
 	<ul>
 		<li ng-repeat="item in items">{{item.name}}</li>
 	</ul>
