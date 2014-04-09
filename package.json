@@ -1,6 +1,6 @@
 {
   "name": "fox-angular-loading",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Loading element to be displayed while a resource is loading",
   "keywords": [ "angular" ],
   "homepage": "http://github.com/orapouso/fox-angular-loading",

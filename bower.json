@@ -1,7 +1,7 @@
 {
   "author": "Rafael Raposo",
   "name": "fox-angular-loading",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Loading element to be displayed while a resource is loading",
   "main": "./dist/fox-angular-loading.js",
   "homepage": "http://github.com/orapouso/fox-angular-loading",
